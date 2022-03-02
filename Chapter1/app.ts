@@ -1,33 +1,24 @@
-let id:number = 123;
-let names:string = "min";
-let course:boolean = false;
+class Person {
 
-enum GenderType {
-    Male = 'male',
-    Female = 'female'
+     constructor(private _id:number, private _names:string, private _course:boolean){
+
+     }
+
+
+    get names (){
+        return this._names;
+    }
+    
+    set names (value:string){
+        this._names = value;
+    }
+
+     printPerson = ():void => {
+        console.log(`${this._names}는 졸업을 ${this._course}했다.`)
+    }
+
 }
 
-type StrOrNum = number | string;
-
-interface Person {
-    id:number;
-    names:string;
-    readonly course?:boolean;
-    gender?: 'male' | 'female';
-    //addComment (comment:string):string;
-    addComment?: (comment:string) => string;
-}
-
-function getPerson(id:number,names:string,course:boolean):Person{
-    return {id:123, names:"un",course:true};
-}
-
-function savePerson(person:Person):void{
-    // person.course=false;
-}
-
-savePerson({id:222,names:"kim",course:true,gender:'male'});
-
-let someValue: any = 5;
-someValue = 'hello';
-someValue = true;
+let employee1 = new Person(2,'kimm',false);
+console.log(employee1.names);
+employee1.printPerson();
